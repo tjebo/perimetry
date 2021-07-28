@@ -4,6 +4,9 @@
 # perimetry
 
 <!-- badges: start -->
+
+[![Travis build
+status](https://travis-ci.com/tjebo/perimetry.svg?branch=master)](https://travis-ci.com/tjebo/perimetry)
 <!-- badges: end -->
 
 perimetry will simplify visual field analysis based on current concepts
