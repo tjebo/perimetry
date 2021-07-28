@@ -1,0 +1,16 @@
+Package: perimetry
+Title: Simplifying visual field analysis based on current concepts and 
+understanding of visual field data. 
+Version: 0.0.0.9000
+Authors@R: 
+    c(
+    person("Tjebo", "Heeren", email = "tjebo@gmx.de", 
+    role = c("aut", "cre"),
+    comment = c(ORCID = "0000-0001-5297-2301")),
+    person("Maximilian", "Pfau", role = c("ctb")))
+Description: What the package does (one paragraph).
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
