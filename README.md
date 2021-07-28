@@ -3,6 +3,8 @@
 
 # perimetry
 
+R package for visual field analysis.
+
 <!-- badges: start -->
 
 [![Travis build
@@ -16,7 +18,7 @@ and understanding of visual field data.
 
 ## Installation
 
-NOT YET ON CRAN - hopefully soonb
+NOT YET ON CRAN
 
 Development version on github (here!)
 
