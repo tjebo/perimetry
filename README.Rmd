@@ -23,9 +23,9 @@ perimetry will simplify visual field analysis based on current concepts and unde
 
 ## Features 
 ## Installation
-NOT YET ON CRAN
+NOT YET ON CRAN - hopefully soonb 
 
-Development version on github (here!)
+Development version on github (here!) 
 
 ``` r
 # install.packages("devtools")

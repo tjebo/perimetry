@@ -16,7 +16,7 @@ and understanding of visual field data.
 
 ## Installation
 
-NOT YET ON CRAN
+NOT YET ON CRAN - hopefully soonb
 
 Development version on github (here!)
 
