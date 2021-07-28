@@ -1,6 +1,6 @@
 Package: perimetry
 Title: Simplifying visual field analysis based on current concepts and 
-understanding of visual field data. 
+    understanding of visual field data. 
 Version: 0.0.0.9000
 Authors@R: 
     c(

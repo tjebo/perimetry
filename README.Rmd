@@ -1,0 +1,39 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# perimetry
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+perimetry will simplify visual field analysis based on current concepts and understanding of visual field data.
+
+## Features 
+## Installation
+NOT YET ON CRAN
+
+Development version on github (here!)
+
+``` r
+# install.packages("devtools")
+devtools::install_github("tjebo/perimetry")
+```
+## Example
+
+```{r example, eval = FALSE}
+library(perimetry)
+## basic example code
+```
+
