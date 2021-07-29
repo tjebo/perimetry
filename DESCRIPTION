@@ -31,4 +31,7 @@ Imports:
     tidyr (>= 1.1.3),
     utils,
     xml2 (>= 1.3.2)
+Suggests: 
+    testthat (>= 3.0.0),
+    here
 Config/testthat/edition: 3
