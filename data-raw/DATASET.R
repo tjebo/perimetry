@@ -9,12 +9,12 @@ data_wide <- read.csv("data-raw/norm_pfau.csv", header=TRUE, sep=";", stringsAsF
 # reassigning data types
 norm_pfau <-
   data_wide %>%
-  pivot_longer(names_to = 'position', values_to = 'value', X0_0:X10_180) %>%
+  pivot_longer(names_to = 'position', values_to = 'threshold', X0_0:X10_180) %>%
   separate(position, sep = "_", into = c("eccent", "angle")) %>%
   separate(Type, sep =  "_", into  = c("testtype", "testnumber")) %>%
   mutate(eccent = as.integer(str_replace(eccent, "X", "")),
          angle = as.integer(angle),
-         value = as.integer(value),
+         threshold = as.integer(threshold),
          testtype = tolower(testtype),
          lens = replace_na(Lens, 'natural'),
          lens = if_else(lens != "pp", "natural", "pseudo"),
@@ -27,7 +27,7 @@ norm_pfau <-
   ) %>%
   select(patID = Patient.ID, eye, age = Age, sex, lens, testID = Examination.ID, contains('Fixation'),
          wrong = WrongPressureEvents, testtype, testnumber, avg_rctn = Average.reaction.time,
-         eccent, angle, value) %>%
+         eccent, angle, threshold) %>%
   select(-testID)
   #calculate difference of cyan and red exam
   # pivot_wider(id_cols = c(patID, testtype, testnumber, eccent, angle) ,
@@ -41,7 +41,12 @@ norm_pfau <-
   # group_by(testID) %>%
   # mutate(stimID = seq_along(testID)) %>%
   # ungroup()
-usethis::use_data(norm_pfau, overwrite = TRUE)
+pfau_nest <-
+  nest(norm_pfau, data = c(eccent, angle, threshold)) %>%
+  rename(bcea63 = "Fixation.area.0.632",
+         bcea95 = "Fixation.area.0.950", fix_angle = "Fixation.angle")
+
+usethis::use_data(pfau_nest, overwrite = TRUE)
 
 denniss_names <-
   unname(unlist(read.csv("data-raw/norm_denniss.csv", header=FALSE)[1, ])) %>%
@@ -58,4 +63,6 @@ norm_denniss <- data_denniss %>%
          VA = matches("^VA"), everything()) %>%
   mutate(eye = recodeye(eye))
 
-usethis::use_data(norm_denniss, overwrite = TRUE)
+denniss_nest <- nest(norm_denniss, data = c(x,y, threshold))
+
+usethis::use_data(denniss_nest, overwrite = TRUE)
