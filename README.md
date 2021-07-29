@@ -32,7 +32,6 @@ devtools::install_github("tjebo/perimetry")
 
 ``` r
 library(perimetry)
-## basic example code
 ```
 
 # tidyfields
@@ -45,56 +44,98 @@ A framework for the analysis of visual field (perimetry) data in R.
 
 ### 2. Central object: tidyfield object
 
-Nested tibble (acc. to <https://vita.had.co.nz/papers/tidy-data.pdf> )
-
-#### 1. Layer (Exam level data, two-cols)
-
-| variable            | value                                |
-|---------------------|--------------------------------------|
-| Device              | \[MAIA / …\]                         |
-| DeviceID            | \[ID\]                               |
-| PatientID           | \[PID\]                              |
-| Lastname            | \[Lastname\]                         |
-| Firstname           | \[Firstname\]                        |
-| DOB                 | \[DOB\]                              |
-| Age                 | \[Age\]                              |
-| DOE                 | \[DOE, format: 2005-10-21 18:47:22\] |
-| Background          | \[1.27 cd/m2\]                       |
-| StimulusSize        | \[G3\]                               |
-| StimulusColor       | \[white\]                            |
-| StimulusDuration    | \[200\]                              |
-| Staircase           | \[“4-2”\]                            |
-| FoveaPosition\_X    | \[\]                                 |
-| FoveaPosition\_Y    | \[\]                                 |
-| ONHDPosition\_X     | \[\]                                 |
-| ONHDPosition\_Y     | \[\]                                 |
-| AverageSensitivity  | \[\]                                 |
-| AverageReactionTime | \[\]                                 |
-| BCEA95%             | \[\]                                 |
-| BCEA63%             | \[\]                                 |
-| ————-               | ————-                                |
-| FundusImage         | \[Image raw bytes of the JPEG\]      |
-| Testpoints          | \[nested tibble\]                    |
-| BlindSpotTrials     | \[nested tibble\]                    |
-| FixationData        | \[nested tibble\]                    |
-
-#### 2. Layer
-
-2a. Testpoints
-
-| ID  | X   | Y   | FinalThreshold | Intensities    | Responses  | ResponseTimes     | fixated           | prior                          |
-|-----|-----|-----|----------------|----------------|------------|-------------------|-------------------|--------------------------------|
-| 1   | 0   | 0   | 26             | c(32,28,24,26) | c(0,0,1,1) | c(NA, NA, NA, NA) | c(NA, NA, NA, NA) | Nested table with pdf for ZEST |
-
-2b. BlindSpotTrials
-
-| ID  | X   | Y   | FinalThreshold | Intensities    | Responses  | ResponseTimes     |
-|-----|-----|-----|----------------|----------------|------------|-------------------|
-| 0   | 14  | 2   | 26             | c(10,10,10,10) | c(0,0,0,1) | c(NA, NA, NA, NA) |
-
-2c. Fixation data
-
-\[todo\]
+``` r
+str(tidyfield_mock)
+#> Classes 'tbl_df', 'tbl' and 'data.frame':    1 obs. of  24 variables:
+#>  $ Device             : chr "[MAIA / ...]"
+#>  $ DeviceID           : chr "[ID]"
+#>  $ PatientID          : chr "[PID]"
+#>  $ Lastname           : chr "[Lastname]"
+#>  $ Firstname          : chr "[Firstname]"
+#>  $ DOB                : chr "[DOB]"
+#>  $ Age                : chr "[Age]"
+#>  $ DOE                : chr "[DOE, format: 2005-10-21 18:47:22]"
+#>  $ Background         : chr "[1.27 cd/m2]"
+#>  $ StimulusSize       : chr "[G3]"
+#>  $ StimulusColor      : chr "[white]"
+#>  $ StimulusDuration   : chr "[200]"
+#>  $ Staircase          : chr "['4-2']"
+#>  $ FoveaPosition_X    : chr "[]"
+#>  $ FoveaPosition_Y    : chr "[]"
+#>  $ ONHDPosition_X     : chr "[]"
+#>  $ ONHDPosition_Y     : chr "[]"
+#>  $ AverageSensitivity : chr "[]"
+#>  $ AverageReactionTime: chr "[]"
+#>  $ BCEA95%            : chr "[]"
+#>  $ BCEA63%            : chr "[]"
+#>  $ FixationData       : chr "[nested tibble]"
+#>  $ blindspot          :List of 1
+#>   ..$ :Classes 'tbl_df', 'tbl' and 'data.frame': 1 obs. of  1 variable:
+#>   .. ..$ BlindSpotTrials:Classes 'spec_tbl_df', 'tbl_df', 'tbl' and 'data.frame':    1 obs. of  7 variables:
+#>   .. .. ..$ ID            : num 0
+#>   .. .. ..$ X             : num 14
+#>   .. .. ..$ Y             : num 2
+#>   .. .. ..$ FinalThreshold: num 26
+#>   .. .. ..$ Intensities   : chr "c(10,10,10,10)"
+#>   .. .. ..$ Responses     : chr "c(0,0,0,1)"
+#>   .. .. ..$ ResponseTimes : chr "c(NA, NA, NA, NA)"
+#>   .. .. ..- attr(*, "spec")=List of 3
+#>   .. .. .. ..$ cols   :List of 7
+#>   .. .. .. .. ..$ ID            : list()
+#>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "collector_double" "collector"
+#>   .. .. .. .. ..$ X             : list()
+#>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "collector_double" "collector"
+#>   .. .. .. .. ..$ Y             : list()
+#>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "collector_double" "collector"
+#>   .. .. .. .. ..$ FinalThreshold: list()
+#>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "collector_double" "collector"
+#>   .. .. .. .. ..$ Intensities   : list()
+#>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
+#>   .. .. .. .. ..$ Responses     : list()
+#>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
+#>   .. .. .. .. ..$ ResponseTimes : list()
+#>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
+#>   .. .. .. ..$ default: list()
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "collector_guess" "collector"
+#>   .. .. .. ..$ skip   : int 1
+#>   .. .. .. ..- attr(*, "class")= chr "col_spec"
+#>  $ testpoints         :List of 1
+#>   ..$ :Classes 'tbl_df', 'tbl' and 'data.frame': 1 obs. of  1 variable:
+#>   .. ..$ Testpoints:Classes 'spec_tbl_df', 'tbl_df', 'tbl' and 'data.frame': 1 obs. of  9 variables:
+#>   .. .. ..$ ID            : num 1
+#>   .. .. ..$ X             : num 0
+#>   .. .. ..$ Y             : num 0
+#>   .. .. ..$ FinalThreshold: num 26
+#>   .. .. ..$ Intensities   : chr "c(32,28,24,26)"
+#>   .. .. ..$ Responses     : chr "c(0,0,1,1)"
+#>   .. .. ..$ ResponseTimes : chr "c(NA, NA, NA, NA)"
+#>   .. .. ..$ fixated       : chr "c(NA, NA, NA, NA)"
+#>   .. .. ..$ prior         : chr "Nested table with pdf for ZEST"
+#>   .. .. ..- attr(*, "spec")=List of 3
+#>   .. .. .. ..$ cols   :List of 9
+#>   .. .. .. .. ..$ ID            : list()
+#>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "collector_double" "collector"
+#>   .. .. .. .. ..$ X             : list()
+#>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "collector_double" "collector"
+#>   .. .. .. .. ..$ Y             : list()
+#>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "collector_double" "collector"
+#>   .. .. .. .. ..$ FinalThreshold: list()
+#>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "collector_double" "collector"
+#>   .. .. .. .. ..$ Intensities   : list()
+#>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
+#>   .. .. .. .. ..$ Responses     : list()
+#>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
+#>   .. .. .. .. ..$ ResponseTimes : list()
+#>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
+#>   .. .. .. .. ..$ fixated       : list()
+#>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
+#>   .. .. .. .. ..$ prior         : list()
+#>   .. .. .. .. .. ..- attr(*, "class")= chr [1:2] "collector_character" "collector"
+#>   .. .. .. ..$ default: list()
+#>   .. .. .. .. ..- attr(*, "class")= chr [1:2] "collector_guess" "collector"
+#>   .. .. .. ..$ skip   : int 1
+#>   .. .. .. ..- attr(*, "class")= chr "col_spec"
+```
 
 ### 3. “Mind the gap” function
 
