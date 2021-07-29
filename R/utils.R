@@ -3,7 +3,7 @@
 #' See \code{magrittr::\link[magrittr:pipe]{\%>\%}} for details.
 #'
 #' @name %>%
-#' @rdname pipe
+#' @rdname utils
 #' @keywords internal
 #' @export
 #' @importFrom magrittr %>%
@@ -42,4 +42,21 @@ lu_names <- c(
   prl_i_bl = "baseline prl_i"
 )
 
+#' recode_sex
+#'
+#' @rdname  utils
+#' @description convenience function for recoding of the sex variable
+#' @importFrom eye tidyNA
+#' @author Tjebo
+#' @param x vector
+#' @return character vector
+#' @keywords internal
+#'
+recode_sex <- function(x){
+  x <- tolower(eye::tidyNA(x))
+  sexstrings <- list(m = c("m", "male"), f = c("f", "female", "w"))
+  lookups <- data.frame(match = rep(names(sexstrings), lengths(sexstrings)),
+                        token = unlist(sexstrings))
+  lookups$match[match(x, lookups$token)]
+}
 
