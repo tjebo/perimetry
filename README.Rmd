@@ -55,7 +55,7 @@ str(tidyfield_mock)
 
 
 ### 3. "Mind the gap" function
-Function that completes inputs, that are not stored in the original device output, but that are 'imputable'.
+Function that completes inputs, that are not stored in the original device output, but that are 'imputable'
 
 E.g., Response [y/n] not saved in MAIA files, but imputable from the staircase values
 

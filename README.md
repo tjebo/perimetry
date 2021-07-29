@@ -46,7 +46,7 @@ A framework for the analysis of visual field (perimetry) data in R.
 
 ``` r
 str(tidyfield_mock)
-#> Classes 'tbl_df', 'tbl' and 'data.frame':    1 obs. of  24 variables:
+#> tibble [1 × 24] (S3: tbl_df/tbl/data.frame)
 #>  $ Device             : chr "[MAIA / ...]"
 #>  $ DeviceID           : chr "[ID]"
 #>  $ PatientID          : chr "[PID]"
@@ -70,8 +70,8 @@ str(tidyfield_mock)
 #>  $ BCEA63%            : chr "[]"
 #>  $ FixationData       : chr "[nested tibble]"
 #>  $ blindspot          :List of 1
-#>   ..$ :Classes 'tbl_df', 'tbl' and 'data.frame': 1 obs. of  1 variable:
-#>   .. ..$ BlindSpotTrials:Classes 'spec_tbl_df', 'tbl_df', 'tbl' and 'data.frame':    1 obs. of  7 variables:
+#>   ..$ : tibble [1 × 1] (S3: tbl_df/tbl/data.frame)
+#>   .. ..$ BlindSpotTrials: spec_tbl_df [1 × 7] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 #>   .. .. ..$ ID            : num 0
 #>   .. .. ..$ X             : num 14
 #>   .. .. ..$ Y             : num 2
@@ -100,8 +100,8 @@ str(tidyfield_mock)
 #>   .. .. .. ..$ skip   : int 1
 #>   .. .. .. ..- attr(*, "class")= chr "col_spec"
 #>  $ testpoints         :List of 1
-#>   ..$ :Classes 'tbl_df', 'tbl' and 'data.frame': 1 obs. of  1 variable:
-#>   .. ..$ Testpoints:Classes 'spec_tbl_df', 'tbl_df', 'tbl' and 'data.frame': 1 obs. of  9 variables:
+#>   ..$ : tibble [1 × 1] (S3: tbl_df/tbl/data.frame)
+#>   .. ..$ Testpoints: spec_tbl_df [1 × 9] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 #>   .. .. ..$ ID            : num 1
 #>   .. .. ..$ X             : num 0
 #>   .. .. ..$ Y             : num 0
@@ -140,7 +140,7 @@ str(tidyfield_mock)
 ### 3. “Mind the gap” function
 
 Function that completes inputs, that are not stored in the original
-device output, but that are ‘imputable’.
+device output, but that are ‘imputable’
 
 E.g., Response \[y/n\] not saved in MAIA files, but imputable from the
 staircase values
