@@ -12,9 +12,6 @@ A nested tibble with:
 \item{eye}{Left or right eye of patient (r = right, l = left)}
 }
 }
-\usage{
-data(norm_data)
-}
 \description{
 Norm data obtained from healthy controls. Data was collected in
 the University Eye Hospital Bonn by Simone Tzaridis and Maximilian Pfau.\preformatted{**TO BE CONTINUED**

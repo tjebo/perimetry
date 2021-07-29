@@ -12,7 +12,6 @@
 #'
 #' @docType data
 #' @name pfau_nest
-#' @usage data(norm_data)
 NULL
 
 #' Norm data 2
@@ -30,7 +29,6 @@ NULL
 #' @name denniss_nest
 #' @source https://www.sciencedirect.com/science/article/pii/S2352340916304978
 #' accompagnying paper: http://iovs.arvojournals.org/article.aspx?articleid=2571342
-
 NULL
 
 
