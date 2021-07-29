@@ -14,10 +14,21 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
-Depends: 
-    R (>= 2.10)
 Imports: 
-    magrittr
-Suggests: 
-    testthat (>= 3.0.0)
+    dplyr,
+    eye,
+    gstat,
+    jsonlite,
+    lubridate,
+    magrittr,
+    plyr,
+    readr,
+    rlang,
+    sp,
+    stats,
+    stringr,
+    tibble,
+    tidyr,
+    utils,
+    xml2
 Config/testthat/edition: 3
