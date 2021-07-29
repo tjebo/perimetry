@@ -1,7 +1,7 @@
 library(perimetry)
 library(testthat)
 
-my_path <- file.path(getwd(), "test_data", "tgz_export")
+my_path <- here::here("test_data", "tgz_export")
 my_tgz <- show_tgz(my_path)
 unpack_tgz(my_tgz)
 my_tmp_dir <- create_ID_dirs(my_tgz)
