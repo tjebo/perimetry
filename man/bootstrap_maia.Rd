@@ -21,18 +21,18 @@ creates n bootstrap samples of the original norm_data
 Returns list of linear models
 }
 \examples{
-boots <- bootstrap_maia()
-make linear model for each bootstrap sample
-lm_boots <- lapply(boots, function(x) lm_loc(normdata = x))
-# predict the location for each linear model.
-# Using data of one test. But works also without testdata.
-pred_boots <- lapply(
-  lm_boots,
-  function(x) predict_norm(testdata = testdat1, list_model = x)
-)
-# Creating the coordinates in testdat1 for the use in
-# interpolate_norm
-testdat_coord <- coord_cart(testdat1)
+# boots <- bootstrap_maia()
+# make linear model for each bootstrap sample
+# lm_boots <- lapply(boots, function(x) lm_loc(normdata = x))
+# # predict the location for each linear model.
+# # Using data of one test. But works also without testdata.
+# pred_boots <- lapply(
+#   lm_boots,
+#   function(x) predict_norm(testdata = testdat1, list_model = x)
+# )
+# # Creating the coordinates in testdat1 for the use in
+# # interpolate_norm
+# testdat_coord <- coord_cart(testdat1)
 
 # now create the interpolation maps for each bootstrap sample
 interpol_boots <- lapply(

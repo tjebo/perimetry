@@ -32,10 +32,10 @@ The variance used for estimation is equal to the \emph{prediction intervals}
 from those models, assuming homoscedasticity in a non-weighted model
 }
 \examples{
-preddat <- predict_norm(testdat1)
-testdat_coord <- coord_cart(testdat1)
-interpol_dat <- interpolate_norm(preddat, newgrid = testdat_coord)
-mpstats_single(interpol_dat)
+# preddat <- predict_norm(testdat1)
+# testdat_coord <- coord_cart(testdat1)
+# interpol_dat <- interpolate_norm(preddat, newgrid = testdat_coord)
+# mpstats_single(interpol_dat)
 }
 \seealso{
 \link[stats:predict.lm]{stats::predict.lm}

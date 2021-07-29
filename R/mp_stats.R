@@ -23,10 +23,10 @@
 #' @family stat functions
 #' @return Matrix
 #' @examples
-#' test_compare <- compare(testdata)
-#' mpstats(test_compare)
-#' # or (same result)
-#' mpstats(testdata)
+#' # test_compare <- compare(testdata)
+#' # mpstats(test_compare)
+#' # # or (same result)
+#' # mpstats(testdata)
 #' @author tjebo
 #' @export
 
@@ -82,10 +82,10 @@ mpstats <- function(testdata, digits = 2) {
 #' @family stat functions
 #' @return vector
 #' @examples
-#' preddat <- predict_norm(testdat1)
-#' testdat_coord <- coord_cart(testdat1)
-#' interpol_dat <- interpolate_norm(preddat, newgrid = testdat_coord)
-#' mpstats_single(interpol_dat)
+#' # preddat <- predict_norm(testdat1)
+#' # testdat_coord <- coord_cart(testdat1)
+#' # interpol_dat <- interpolate_norm(preddat, newgrid = testdat_coord)
+#' # mpstats_single(interpol_dat)
 #' @author tjebo
 #' @export
 
@@ -181,18 +181,18 @@ mpstats_manual <- function(test_val, norm_val, var_norm, data = NULL) {
 #' @importFrom rlang .data
 #' @family stat functions
 #' @examples
-#' boots <- bootstrap_maia()
-#' make linear model for each bootstrap sample
-#' lm_boots <- lapply(boots, function(x) lm_loc(normdata = x))
-#' # predict the location for each linear model.
-#' # Using data of one test. But works also without testdata.
-#' pred_boots <- lapply(
-#'   lm_boots,
-#'   function(x) predict_norm(testdata = testdat1, list_model = x)
-#' )
-#' # Creating the coordinates in testdat1 for the use in
-#' # interpolate_norm
-#' testdat_coord <- coord_cart(testdat1)
+#' # boots <- bootstrap_maia()
+#' # make linear model for each bootstrap sample
+#' # lm_boots <- lapply(boots, function(x) lm_loc(normdata = x))
+#' # # predict the location for each linear model.
+#' # # Using data of one test. But works also without testdata.
+#' # pred_boots <- lapply(
+#' #   lm_boots,
+#' #   function(x) predict_norm(testdata = testdat1, list_model = x)
+#' # )
+#' # # Creating the coordinates in testdat1 for the use in
+#' # # interpolate_norm
+#' # testdat_coord <- coord_cart(testdat1)
 #'
 #' # now create the interpolation maps for each bootstrap sample
 #' interpol_boots <- lapply(
@@ -235,8 +235,8 @@ bootstrap_maia <- function(n = 50, remove_diff = TRUE) {
 #' @importFrom rlang .data
 #' @family prediction functions
 #' @examples
-#' field_var <- field_variation()
-#' bebie_stats <- calc_bebie(testdat1, field_var)
+#' # field_var <- field_variation()
+#' # bebie_stats <- calc_bebie(testdat1, field_var)
 #' @return List
 #' @export
 calc_bebie <- function(testdata){

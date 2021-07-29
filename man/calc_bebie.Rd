@@ -16,8 +16,8 @@ List
 stats for bebie curve
 }
 \examples{
-field_var <- field_variation()
-bebie_stats <- calc_bebie(testdat1, field_var)
+# field_var <- field_variation()
+# bebie_stats <- calc_bebie(testdat1, field_var)
 }
 \author{
 tjebo

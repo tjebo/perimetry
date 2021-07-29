@@ -35,10 +35,10 @@ The variance used for estimation is equal to the \emph{prediction intervals}
 from those models, assuming homoscedasticity in a non-weighted model
 }
 \examples{
-test_compare <- compare(testdata)
-mpstats(test_compare)
-# or (same result)
-mpstats(testdata)
+# test_compare <- compare(testdata)
+# mpstats(test_compare)
+# # or (same result)
+# mpstats(testdata)
 }
 \seealso{
 \link[stats:predict.lm]{stats::predict.lm}, \link{predict_norm}, \link{coord_cart},
