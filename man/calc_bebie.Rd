@@ -13,13 +13,7 @@ calc_bebie(testdata)
 List
 }
 \description{
-linear regression model for each test location
-of the grid underlying \link{norm_data}, with age as predictor
-The output of this function is used for the prediction in
-\link{predict_norm}
-}
-\details{
-field variations should be created with \link{field_variations}
+stats for bebie curve
 }
 \examples{
 field_var <- field_variation()

@@ -228,10 +228,7 @@ bootstrap_maia <- function(n = 50, remove_diff = TRUE) {
 #' calculates bebie statistics
 #' @name calc_bebie
 #' @author tjebo
-#' @description linear regression model for each test location
-#' of the grid underlying [norm_data], with age as predictor
-#'  The output of this function is used for the prediction in
-#' [predict_norm]
+#' @description stats for bebie curve
 #' @param testdata test for which field variation will be calculated
 #' @import dplyr
 #' @import tidyr
@@ -241,7 +238,6 @@ bootstrap_maia <- function(n = 50, remove_diff = TRUE) {
 #' field_var <- field_variation()
 #' bebie_stats <- calc_bebie(testdat1, field_var)
 #' @return List
-#' @details field variations should be created with [field_variations]
 #' @export
 calc_bebie <- function(testdata){
   testdat_coord <- coord_cart(testdata) %>%
@@ -276,5 +272,17 @@ calc_bebie <- function(testdata){
   bebiestats <- left_join(test_cumdev, norm_cumdev, by = 'rank')
   class(bebiestats) <- c("bebie","tbl_df", "tbl", "data.frame")
   bebiestats
+}
+
+#' RMSE
+#' @name RMSE
+#' @description calculates root mean square error (RMSE) for model testing
+#'
+#' @param observed vector of observed values
+#' @param predicted vector of predicted values
+#' @return numeric vector
+#' @export
+RMSE <- function(observed, predicted) {
+  sqrt(mean((predicted - observed)^2, na.rm=TRUE))
 }
 
