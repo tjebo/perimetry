@@ -26,16 +26,10 @@ This is, because there is no 'real mean' and, more importantly,
 no "real variance" of normal values for each given location.
 Mean and variance are estimated based on kringing (spatial interpolation)
 of \emph{predicted (!)} values. The predicted values are given by simple linear
-regression for each location, based on the \link{norm_data}.
+regression for each location, based on the norm data
 It includes age, sex and lens status as covariates.
 The variance used for estimation is equal to the \emph{prediction intervals}
 from those models, assuming homoscedasticity in a non-weighted model
-}
-\examples{
-# preddat <- predict_norm(testdat1)
-# testdat_coord <- coord_cart(testdat1)
-# interpol_dat <- interpolate_norm(preddat, newgrid = testdat_coord)
-# mpstats_single(interpol_dat)
 }
 \seealso{
 \link[stats:predict.lm]{stats::predict.lm}

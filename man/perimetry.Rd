@@ -18,18 +18,18 @@ Extracting data from MAIA raw (tgz) or .txt in a single call.
 
 Spatially-ignorant metrics (will be spatially-weighted)
 \itemize{
-\item Mean Sensitivity \link{dB}
-\item Mean Deviation \link{dB}
-\item PSD \link{dB}
-\item Mean Loss \link{dB}
-\item Sqrt. of Loss Variance \link{dB}
+\item Mean Sensitivity (dB)
+\item Mean Deviation (dB)
+\item PSD (dB)
+\item Mean Loss (dB)
+\item Sqrt. of Loss Variance (dB)
 }
 
 Spatially-adjusted metrics
 \itemize{
-\item Vol. \link{dB*sr}
-\item Loss \link{dB*sr}
-\item PSD \link{dB*sr}
+\item Vol. (dB*sr)
+\item Loss (dB*sr)
+\item PSD (dB*sr)
 }
 }
 

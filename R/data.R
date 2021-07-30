@@ -31,4 +31,10 @@ NULL
 #' accompagnying paper: http://iovs.arvojournals.org/article.aspx?articleid=2571342
 NULL
 
+#' tidyfield mock
+#' @description Mock documentation for test purpose
+#' @docType data
+#' @name tidyfield_mock
+NULL
+
 

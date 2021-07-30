@@ -1,8 +1,6 @@
 #' Calculates microperimetry statistics.
 #' @name mpstats
 #' @description Calculates microperimetry statistics from a test or list of tests.
-#'   This is basically a wrapper around [predict_norm], [coord_cart],
-#'   [interpolate_norm] and [mpstats_single]
 #'   Includes mean sensitivity (mean_sens), mean deviation (mean_dev),
 #'   pattern standard deviation (psd).
 #'   You can also pass a compare object directly (from compare function),
@@ -12,21 +10,15 @@
 #'   no "real variance" of normal values for each given location.
 #'   Mean and variance are estimated based on kringing (spatial interpolation)
 #'   of *predicted (!)* values. The predicted values are given by simple linear
-#'   regression for each location, based on the [norm_data].
+#'   regression for each location, based on the norm data
 #'   It includes age, sex and lens status as covariates.
 #'   The variance used for estimation is equal to the *prediction intervals*
 #'   from those models, assuming homoscedasticity in a non-weighted model
-#' @seealso [stats::predict.lm], [predict_norm], [coord_cart],
-#'   [interpolate_norm]
 #' @param testdata microperimetry test data
 #' @param digits Digits to be rounded to
 #' @family stat functions
 #' @return Matrix
-#' @examples
-#' # test_compare <- compare(testdata)
-#' # mpstats(test_compare)
-#' # # or (same result)
-#' # mpstats(testdata)
+
 #' @author tjebo
 #' @export
 
@@ -72,7 +64,7 @@ mpstats <- function(testdata, digits = 2) {
 #'   no "real variance" of normal values for each given location.
 #'   Mean and variance are estimated based on kringing (spatial interpolation)
 #'   of *predicted (!)* values. The predicted values are given by simple linear
-#'   regression for each location, based on the [norm_data].
+#'   regression for each location, based on the norm data
 #'   It includes age, sex and lens status as covariates.
 #'   The variance used for estimation is equal to the *prediction intervals*
 #'   from those models, assuming homoscedasticity in a non-weighted model
@@ -81,11 +73,7 @@ mpstats <- function(testdata, digits = 2) {
 #' @param digits Digits to be rounded to
 #' @family stat functions
 #' @return vector
-#' @examples
-#' # preddat <- predict_norm(testdat1)
-#' # testdat_coord <- coord_cart(testdat1)
-#' # interpol_dat <- interpolate_norm(preddat, newgrid = testdat_coord)
-#' # mpstats_single(interpol_dat)
+
 #' @author tjebo
 #' @export
 
@@ -180,26 +168,7 @@ mpstats_manual <- function(test_val, norm_val, var_norm, data = NULL) {
 #' @import tidyr
 #' @importFrom rlang .data
 #' @family stat functions
-#' @examples
-#' # boots <- bootstrap_maia()
-#' # make linear model for each bootstrap sample
-#' # lm_boots <- lapply(boots, function(x) lm_loc(normdata = x))
-#' # # predict the location for each linear model.
-#' # # Using data of one test. But works also without testdata.
-#' # pred_boots <- lapply(
-#' #   lm_boots,
-#' #   function(x) predict_norm(testdata = testdat1, list_model = x)
-#' # )
-#' # # Creating the coordinates in testdat1 for the use in
-#' # # interpolate_norm
-#' # testdat_coord <- coord_cart(testdat1)
-#'
-#' # now create the interpolation maps for each bootstrap sample
-#' interpol_boots <- lapply(
-#'   pred_boots, function(x) {
-#'     interpolate_norm(pred_data = x, newgrid = testdat_coord)
-#'     }
-#' )
+
 #' @return List
 #' @details Returns list of linear models
 #' @export
@@ -234,9 +203,7 @@ bootstrap_maia <- function(n = 50, remove_diff = TRUE) {
 #' @import tidyr
 #' @importFrom rlang .data
 #' @family prediction functions
-#' @examples
-#' # field_var <- field_variation()
-#' # bebie_stats <- calc_bebie(testdat1, field_var)
+
 #' @return List
 #' @export
 calc_bebie <- function(testdata){

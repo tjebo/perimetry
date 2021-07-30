@@ -16,8 +16,6 @@ Matrix
 }
 \description{
 Calculates microperimetry statistics from a test or list of tests.
-This is basically a wrapper around \link{predict_norm}, \link{coord_cart},
-\link{interpolate_norm} and \link{mpstats_single}
 Includes mean sensitivity (mean_sens), mean deviation (mean_dev),
 pattern standard deviation (psd).
 You can also pass a compare object directly (from compare function),
@@ -29,21 +27,12 @@ This is, because there is no 'real mean' and, more importantly,
 no "real variance" of normal values for each given location.
 Mean and variance are estimated based on kringing (spatial interpolation)
 of \emph{predicted (!)} values. The predicted values are given by simple linear
-regression for each location, based on the \link{norm_data}.
+regression for each location, based on the norm data
 It includes age, sex and lens status as covariates.
 The variance used for estimation is equal to the \emph{prediction intervals}
 from those models, assuming homoscedasticity in a non-weighted model
 }
-\examples{
-# test_compare <- compare(testdata)
-# mpstats(test_compare)
-# # or (same result)
-# mpstats(testdata)
-}
 \seealso{
-\link[stats:predict.lm]{stats::predict.lm}, \link{predict_norm}, \link{coord_cart},
-\link{interpolate_norm}
-
 Other stat functions: 
 \code{\link{bootstrap_maia}()},
 \code{\link{mpstats_manual}()},
